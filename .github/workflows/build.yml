@@ -7,9 +7,8 @@ on:
     types: [opened, synchronize, reopened]
 
 env:
-  RELEASE: 'v0.1.0'
+  RELEASE: v0.1.0
   IMAGE_NAME: dmancloud/complete-prodcution-e2e-pipeline
-  IMAGE_TAG: $RELEASE-${{github.run_number}}
 
 jobs:
   build:
@@ -63,4 +62,4 @@ jobs:
       - name: Build & push Docker image
         run: |
           echo ${{ secrets.DOCKER_PASSWORD }} | sudo docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-          echo $IMAGE_NAME:$RELEASE
+          echo $IMAGE_NAME:$RELEASE-${{github.run_number}}
