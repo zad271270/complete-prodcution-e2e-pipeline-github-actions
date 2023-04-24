@@ -72,7 +72,7 @@ jobs:
           push: true
           tags: dmancloud/complete-prodcution-e2e-github-actions:v0.1.${{github.run_number}}
 
-      - name: Send custom JSON data to Slack workflow
+      - name: Post to a Slack channel
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
         with:
