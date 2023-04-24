@@ -70,4 +70,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: dmancloud/complete-prodcution-e2e-github-actions:v0.1.0.${{github.run_number}}
+          tags: dmancloud/complete-prodcution-e2e-github-actions:v0.1.${{github.run_number}}
