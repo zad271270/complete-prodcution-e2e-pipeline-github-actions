@@ -9,7 +9,7 @@ on:
 env:
   RELEASE: v0.1.0
   IMAGE_NAME: dmancloud/complete-prodcution-e2e-pipeline
-  IMAGE_TAG: ${RELEASE}-${{github.run_number}}
+  IMAGE_TAG: $RELEASE-${{github.run_number}}
 
 jobs:
   build:
