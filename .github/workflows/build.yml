@@ -7,7 +7,7 @@ on:
     types: [opened, synchronize, reopened]
 
 env:
-  RELEASE: v0.1.0
+  RELEASE: 'v0.1.0'
   IMAGE_NAME: dmancloud/complete-prodcution-e2e-pipeline
   IMAGE_TAG: $RELEASE-${{github.run_number}}
 
