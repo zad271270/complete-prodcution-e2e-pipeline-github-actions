@@ -10,7 +10,7 @@ env:
   APP_NAME: complete-prodcution-e2e-pipeline
   RELEASE: v0.1.0
   DOCKER_USER: dmancloud
-  IMAGE_NAME: $DOCKER_USER/$APP_NAME
+  IMAGE_NAME: ${{ DOCKER_USER }}/${{ $APP_NAME }}
   IMAGE_TAG: ${RELEASE}-${{github.run_number}}
 
 jobs:
