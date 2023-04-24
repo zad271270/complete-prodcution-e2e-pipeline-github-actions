@@ -63,4 +63,4 @@ jobs:
       - name: Build & push Docker image
         run: |
           echo ${{ secrets.DOCKER_PASSWORD }} | sudo docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-          echo $IMAGE_NAME:$IMAGE_TAG
+          echo $IMAGE_NAME:$RELEASE
