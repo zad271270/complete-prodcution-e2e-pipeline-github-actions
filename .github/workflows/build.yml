@@ -66,16 +66,12 @@ jobs:
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
-          #image-ref: 'dmancloud/complete-prodcution-e2e-github-actions:v0.1.${{github.run_number}}'
-          image-ref: 'dmancloud/complete-prodcution-e2e-github-actions:v0.1.40'
-          format: 'sarif'
-          output: 'trivy-results.sarif'
-
-      - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v2
-        if: always()
-        with:
-          sarif_file: 'trivy-results.sarif'          
+          image-ref: 'docker.io/dmancloud/complete-prodcution-e2e-github-actions:v0.1.${{github.run_number}}'
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'         
 
       - name: Post to a Slack channel
         id: slack
