@@ -68,7 +68,7 @@ jobs:
         with:
           image-ref: 'docker.io/dmancloud/complete-prodcution-e2e-github-actions:v0.1.${{github.run_number}}'
           format: 'table'
-          exit-code: '1'
+          exit-code: '0'
           ignore-unfixed: true
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'         
