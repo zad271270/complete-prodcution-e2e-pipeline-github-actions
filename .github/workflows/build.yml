@@ -63,15 +63,16 @@ jobs:
           push: true
           tags: dmancloud/complete-prodcution-e2e-github-actions:v0.1.${{github.run_number}}
 
-      - name: Run static analysis
+      - name: Image Scan
         uses: aquasecurity/trivy-action@master
         with:
-          scan-type: 'fs'
-          security-checks: 'vuln,secret,config'
-          ignore-unfixed: true
+          image-ref: 'docker.io/dmancloud/complete-prodcution-e2e-github-actions:v0.1.${{github.run_number}}'
           format: 'sarif'
-          output: 'trivy-results.sarif'
-          severity: 'CRITICAL'
+          output: 'trivy-image-results.sarif'
+#          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
 
 
       - name: Upload Trivy scan results to GitHub Security tab
@@ -102,4 +103,3 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
-          
