@@ -63,33 +63,15 @@ jobs:
           push: true
           tags: dmancloud/complete-prodcution-e2e-github-actions:v0.1.${{github.run_number}}
 
-#      - name: Run Trivy vulnerability scanner
-#        uses: aquasecurity/trivy-action@master
-#        with:
-#          image-ref: 'docker.io/dmancloud/complete-prodcution-e2e-github-actions:v0.1.${{github.run_number}}'
-#          format: 'table'
-#          exit-code: '0'
-#          ignore-unfixed: true
-#          vuln-type: 'os,library'
-#          severity: 'CRITICAL,HIGH'  
-
-      - name: Run Trivy vulnerability scanner in fs mode
-        uses: anandg112/trivy-action@feat/add-skip-dirs-option
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
         with:
-          scan-type: 'fs'
-#          scan-ref: '.'
+          image-ref: 'docker.io/dmancloud/complete-prodcution-e2e-github-actions:v0.1.${{github.run_number}}'
+          format: 'table'
+          exit-code: '0'
           ignore-unfixed: true
-          format: 'template'
-          template: '@/contrib/sarif.tpl'
-          output: 'trivy-results-fs.sarif'
-          severity: 'CRITICAL'
-          skip-dirs: "ignored-dir"
-
-
-      - name: DEBUG Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: 'debug-trivy-results.sarif'
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
 
 
       - name: Post to a Slack channel
