@@ -106,4 +106,4 @@ jobs:
          
       - name: Cleanup Workspace
         uses: colpal/actions-clean@v1
-          if: ${{ always() }}
+        if: ${{ always() }}
