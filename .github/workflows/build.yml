@@ -15,6 +15,7 @@ jobs:
     name: Build
     runs-on: self-hosted
     steps:
+      - uses: rtCamp/action-cleanup@master
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
