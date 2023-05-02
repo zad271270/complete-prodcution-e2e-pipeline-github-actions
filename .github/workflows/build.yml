@@ -61,7 +61,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: dmancloud/complete-prodcution-e2e-pipeline:v0.1.${{github.run_number}}
+          tags: dmancloud/complete-prodcution-e2e-github-actions:v0.1.${{github.run_number}}
 
       - name: Image Scan
         uses: aquasecurity/trivy-action@master
