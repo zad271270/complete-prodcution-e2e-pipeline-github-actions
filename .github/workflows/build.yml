@@ -103,3 +103,7 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+         
+      - name: Cleanup Workspace
+        uses: colpal/actions-clean@v1
+          if: ${{ always() }}
